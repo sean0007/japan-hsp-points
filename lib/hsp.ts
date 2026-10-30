@@ -36,7 +36,7 @@ export const SOURCES = [
   "https://www.moj.go.jp/isa/content/930001665.pdf",
   "https://www.moj.go.jp/isa/applications/resources/nyuukokukanri01_00009.html",
   "https://laws.e-gov.go.jp/law/505M60000010025",
-  "https://www.moj.go.jp/isa/applications/procedures/nyukan50.html",
+  "https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan50.html",
 ] as const;
 
 export const DISCLAIMER =

@@ -30,7 +30,7 @@ Site: https://japan-hsp-points.vercel.app
 - https://www.moj.go.jp/isa/content/930001665.pdf (special-addition notice, revised 2026-03-31)
 - https://www.moj.go.jp/isa/applications/resources/nyuukokukanri01_00009.html (ISA: J-Skip)
 - https://laws.e-gov.go.jp/law/505M60000010025 (J-Skip ordinance)
-- https://www.moj.go.jp/isa/applications/procedures/nyukan50.html (permanent residence guideline)
+- https://www.moj.go.jp/isa/applications/resources/nyukan_nyukan50.html (permanent residence guideline)
 
 ## Disclaimer
 Educational points calculator, not immigration or legal advice, not affiliated with ISA or the Ministry of Justice. ISA decides; every point needs documents. Re-check after the FY2026 revision is published.
