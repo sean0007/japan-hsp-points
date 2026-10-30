@@ -1,0 +1,49 @@
+# Japan HSP Points Calculator
+
+> Free, unofficial calculator for Japan's Highly Skilled Professional points system (高度人材ポイント制, 高度専門職). Three categories: academic research (HSP i-a, 高度専門職1号イ), specialized / technical (i-b, 1号ロ) and business management (i-c, 1号ハ). Scores each item from the ministerial ordinance (平成26年法務省令第37号, art. 1), checks the 70-point pass line and the ¥3M salary floor (i-b, i-c), the permanent-residence fast track (70 → 3 years, 80 → 1 year), HSP (ii), J-Skip (特別高度人材) and lists bonus points still available. Rules as of 2026-10-30; a revision within FY2026 has been reported but not published. Educational, not immigration advice; not affiliated with the Immigration Services Agency of Japan.
+
+Site: https://japan-hsp-points.vercel.app
+
+## Key facts (official sources below)
+- Pass line: 70 points. Specialized and management also need expected annual pay ≥ ¥3,000,000.
+- Education — academic: PhD 30, master/professional 20, bachelor 10; specialized: PhD 30, MBA/MOT 25, master 20, bachelor 10; management: MBA/MOT 25, PhD/master 20, bachelor 10. Degrees in multiple fields +5.
+- Experience — academic: 7y 15, 5y 10, 3y 5; specialized: 10y 20, 7y 15, 5y 10, 3y 5; management: 10y 25, 7y 20, 5y 15, 3y 10.
+- Salary (academic, specialized): ¥10M 40, ¥9M 35, ¥8M 30, ¥7M 25, ¥6M 20, ¥5M 15, ¥4M 10 — but brackets only count from ¥4M under 30, ¥5M at 30–34, ¥6M at 35–39, ¥8M at 40+. Management: ¥30M 50, ¥25M 40, ¥20M 30, ¥15M 20, ¥10M 10 (no age limit). Salary = expected annual pay in Japan incl. bonuses.
+- Age (academic, specialized): under 30 15, 30–34 10, 35–39 5.
+- Research: academic 20 (2+ kinds 25); specialized 15. Specialized: Japanese national qualifications / ISA-listed IT exams 5 (one) or 10 (two+). Management position: representative 10, director/officer 5.
+- Bonuses: innovation-support employer 10 (20 if SME); SME with R&D > 3% 5; foreign qualification/award 5; Japanese university degree 10; JLPT N1 / BJT 480+ / Japanese major abroad 15; N2 / BJT 400+ 10 (only without the Japanese-degree bonus and N1); growth-field project 10; designated top university 10; JICA Innovative Asia training 5; local-government support 10; investment-management work 10 (specialized, management); personal investment ¥100M+ 5 (management).
+- Permanent residence (PR guideline): 80+ points → after 1 year (also 80+ one year before); 70+ → after 3 years (also 70+ three years before); J-Skip → 1 year.
+- HSP (ii): after 3 years on HSP (i) (1 year for J-Skip) + good conduct + national interest.
+- J-Skip (since 2023-04): academic / specialized — master's+ and ¥20M+, or 10+ years' experience and ¥20M+; management — 5+ years' management and ¥40M+. No points needed.
+
+## API (free, no key, CORS open)
+- GET or POST https://japan-hsp-points.vercel.app/api/check?category=specialized&age=31&education=master&experienceYears=4&annualSalary=7500000&japanese=n2&qualifications=1 → total 75, verdict qualifies_70, breakdown, pointsTo80 5, pr {route hsp70, 3 years}, jSkip, couldAdd, warnings, pendingRevision, sources, disclaimer.
+- Params: category (academic | specialized | management; aliases a/b/c, イ/ロ/ハ, engineer, ceo…), education (doctor | mba | master | bachelor | none), age or birthDate (+applicationDate), annualSalary (yen) or annualSalaryMan (万円), experienceYears, researchItems (0–4), qualifications, position (representative | officer | none), japanese (n1 | n2 | none), booleans multipleDegrees, innovationSupport, sme, smeResearch3pct, foreignQualification, japaneseDegree, growthProject, topUniversity, jicaTraining, personalInvestment100m, investmentManagement, localGovSupport.
+- Rules JSON: https://japan-hsp-points.vercel.app/api/rules
+- OpenAPI: https://japan-hsp-points.vercel.app/openapi.json
+- MCP: tool `japan_hsp_points_check` on https://free-agent-tools.vercel.app/mcp
+
+## Official sources
+- https://laws.e-gov.go.jp/law/426M60000010037 (HSP criteria ordinance, 平成26年法務省令第37号)
+- https://www.moj.go.jp/isa/applications/resources/newimmiact_3_evaluate_index.html (ISA: how points are evaluated)
+- https://www.moj.go.jp/isa/content/001398882.pdf (ISA points calculation table, English)
+- https://www.moj.go.jp/isa/content/930001665.pdf (special-addition notice, revised 2026-03-31)
+- https://www.moj.go.jp/isa/applications/resources/nyuukokukanri01_00009.html (ISA: J-Skip)
+- https://laws.e-gov.go.jp/law/505M60000010025 (J-Skip ordinance)
+- https://www.moj.go.jp/isa/applications/procedures/nyukan50.html (permanent residence guideline)
+
+## Disclaimer
+Educational points calculator, not immigration or legal advice, not affiliated with ISA or the Ministry of Justice. ISA decides; every point needs documents. Re-check after the FY2026 revision is published.
+
+## Other free tools by the same maker
+- Japan PR Guideline Check (permanent-residence requirements incl. the HSP 70/80 routes): https://japan-pr-check.vercel.app
+- Japan Visa Fee Calculator: https://japan-visa-fee.vercel.app
+- Japan Re-entry Deadline Check: https://japan-reentry-check.vercel.app
+- Japan My Number Card Expiry Check: https://japan-mynumber-card-check.vercel.app
+- Japan Overseas Dependents Check: https://japan-overseas-dependents.vercel.app
+- Japan Part-time Work Check: https://japan-parttime-check.vercel.app
+- Japan Driving Check: https://japan-driving-check.vercel.app
+- House Rules Check: https://house-rules-check.vercel.app
+- Japan Tax-Free Refund Checker: https://japan-tax-free-refund.vercel.app
+- Japan Trip Brain (Japan trip planner): https://japan-trip-brain.vercel.app
+- Free Agent Tools MCP: https://free-agent-tools.vercel.app
