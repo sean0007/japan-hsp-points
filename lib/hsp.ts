@@ -190,7 +190,10 @@ export function checkHsp(input: CheckInput): CheckResult {
   // Education
   const edPts = educationPoints(cat, input.education);
   add("Education", "学歴", edPts, EDUCATION_LABEL[input.education]);
-  if (input.multipleDegrees && input.education !== "none") add("Degrees in two or more fields", "複数分野の学位", 5, "Two or more of doctor / master / professional degrees in different fields (+5)");
+  // Ordinance: 複数の分野において博士若しくは修士の学位又は専門職学位を有していること (+5): needs postgraduate degrees, so not with a bachelor's as the highest degree.
+  const postgrad = input.education === "doctor" || input.education === "master" || input.education === "mba";
+  if (input.multipleDegrees && postgrad) add("Degrees in two or more fields", "複数分野の学位", 5, "Two or more of doctor / master / professional degrees in different fields (+5)");
+  else if (input.multipleDegrees) warnings.push("The +5 for degrees in multiple fields only counts doctor's, master's or professional degrees (博士・修士・専門職学位) in two or more fields, not bachelor's degrees.");
   if (input.education === "none") warnings.push("Education points need a university degree or equivalent (graduation from a university or an institution of equal or higher level).");
 
   // Experience

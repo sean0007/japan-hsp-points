@@ -6,7 +6,7 @@ Site: https://japan-hsp-points.vercel.app
 
 ## Key facts (official sources below)
 - Pass line: 70 points. Specialized and management also need expected annual pay ≥ ¥3,000,000.
-- Education — academic: PhD 30, master/professional 20, bachelor 10; specialized: PhD 30, MBA/MOT 25, master 20, bachelor 10; management: MBA/MOT 25, PhD/master 20, bachelor 10. Degrees in multiple fields +5.
+- Education — academic: PhD 30, master/professional 20, bachelor 10; specialized: PhD 30, MBA/MOT 25, master 20, bachelor 10; management: MBA/MOT 25, PhD/master 20, bachelor 10. Doctor / master / professional degrees in two or more fields +5 (not bachelor's).
 - Experience — academic: 7y 15, 5y 10, 3y 5; specialized: 10y 20, 7y 15, 5y 10, 3y 5; management: 10y 25, 7y 20, 5y 15, 3y 10.
 - Salary (academic, specialized): ¥10M 40, ¥9M 35, ¥8M 30, ¥7M 25, ¥6M 20, ¥5M 15, ¥4M 10 — but brackets only count from ¥4M under 30, ¥5M at 30–34, ¥6M at 35–39, ¥8M at 40+. Management: ¥30M 50, ¥25M 40, ¥20M 30, ¥15M 20, ¥10M 10 (no age limit). Salary = expected annual pay in Japan incl. bonuses.
 - Age (academic, specialized): under 30 15, 30–34 10, 35–39 5.

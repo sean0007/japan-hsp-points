@@ -111,3 +111,15 @@ test("input validation and age helper", () => {
   assert.equal(ageOn("1995-10-31", "2026-10-30"), 30);
   assert.equal(ageOn("1995-10-30", "2026-10-30"), 31);
 });
+
+test("multiple-degrees bonus needs postgraduate degrees (not bachelor / none)", () => {
+  const base = { category: "specialized" as const, age: 28, experienceYears: 0, annualSalaryYen: 5_000_000 };
+  const bach = checkHsp({ ...base, education: "bachelor", multipleDegrees: true });
+  assert.equal(bach.total, 10 + 15 + 15);
+  assert.ok(!bach.breakdown.some((i) => i.itemJa === "複数分野の学位"));
+  assert.ok(bach.warnings.some((w) => /not bachelor/.test(w)));
+  assert.equal(checkHsp({ ...base, education: "none", multipleDegrees: true }).total, 15 + 15);
+  assert.equal(checkHsp({ ...base, education: "master", multipleDegrees: true }).total, 20 + 5 + 15 + 15);
+  assert.equal(checkHsp({ ...base, education: "doctor", multipleDegrees: true }).total, 30 + 5 + 15 + 15);
+  assert.equal(checkHsp({ ...base, education: "mba", multipleDegrees: true }).total, 25 + 5 + 15 + 15);
+});

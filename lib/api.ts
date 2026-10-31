@@ -116,7 +116,7 @@ export const ENDPOINTS: Record<"check", Endpoint> = {
       { name: "birthDate", type: "string", description: "YYYY-MM-DD; used with applicationDate (default today in Japan) when age is not given." },
       { name: "annualSalary", type: "number", required: true, description: "Expected annual pay in Japan in yen, including bonuses (e.g. 7500000). Or annualSalaryMan in 万円 (750)." },
       { name: "experienceYears", type: "number", default: 0, description: "Years of experience: in research/teaching (academic), in the work you will do (specialized), in business management (management)." },
-      { name: "multipleDegrees", type: "boolean", default: false, description: "Doctor / master / professional degrees in two or more fields (+5)." },
+      { name: "multipleDegrees", type: "boolean", default: false, description: "Doctor / master / professional degrees in two or more fields (+5; needs education doctor, mba or master, not bachelor)." },
       { name: "researchItems", type: "integer", default: 0, minimum: 0, maximum: 4, description: "Kinds of research achievement (patent; 3+ foreign-government grants; 3+ papers as corresponding author; other). Academic: 1 → 20, 2+ → 25. Specialized: 1+ → 15." },
       { name: "qualifications", type: "integer", default: 0, description: "Specialized only: Japanese national qualifications / ISA-listed IT exams or qualifications related to the work. 1 → 5, 2+ → 10." },
       { name: "position", type: "string", enum: POSITIONS, default: "none", description: "Management only: representative (代表取締役 etc., 10) or officer (取締役 / 執行役, 5)." },
