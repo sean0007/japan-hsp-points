@@ -123,3 +123,25 @@ test("multiple-degrees bonus needs postgraduate degrees (not bachelor / none)", 
   assert.equal(checkHsp({ ...base, education: "doctor", multipleDegrees: true }).total, 30 + 5 + 15 + 15);
   assert.equal(checkHsp({ ...base, education: "mba", multipleDegrees: true }).total, 25 + 5 + 15 + 15);
 });
+
+test("J-Skip-eligible profile below 70 leads with J-Skip in the summary, not 'short of 70'", () => {
+  const r = checkHsp({ category: "specialized", age: 45, education: "master", experienceYears: 0, annualSalaryYen: 20_000_000 });
+  assert.equal(r.verdict, "below_70");
+  assert.equal(r.jSkip.eligible, true);
+  assert.equal(r.pr.route, "hsp80");
+  assert.ok(r.summary.startsWith("J-Skip (特別高度人材) may apply"), r.summary);
+  assert.match(r.summary, new RegExp(`${r.total} points, ${70 - r.total} short of 70`));
+});
+
+test("J-Skip-eligible profile at 70-79 leads with J-Skip; 80+ and non-J-Skip summaries unchanged", () => {
+  const a = checkHsp({ category: "specialized", age: 45, education: "master", experienceYears: 5, annualSalaryYen: 20_000_000 });
+  assert.equal(a.jSkip.eligible, true);
+  assert.equal(a.verdict, "qualifies_70");
+  assert.ok(a.summary.startsWith("J-Skip") && a.summary.includes("clears 70"), a.summary);
+  const b = checkHsp(base);
+  assert.equal(b.jSkip.eligible, false);
+  assert.ok(b.summary.startsWith("75 points: clears 70"));
+  const c = checkHsp({ category: "management", age: 50, education: "mba", experienceYears: 10, annualSalaryYen: 40_000_000, position: "representative" });
+  assert.equal(c.verdict, "qualifies_80");
+  assert.ok(!c.summary.startsWith("J-Skip"));
+});

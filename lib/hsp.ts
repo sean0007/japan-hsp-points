@@ -291,8 +291,10 @@ export function checkHsp(input: CheckInput): CheckResult {
   if (!floorOk) warnings.push(`Specialized and management HSP also require annual salary of at least ¥3,000,000, whatever the points. ${yen(salary)} is below it.`);
 
   const label = CATEGORY_LABEL[cat];
-  const summary =
-    verdict === "below_salary_floor"
+  const jSkipLeads = jEligible && floorOk && verdict !== "qualifies_80";
+  const summary = jSkipLeads
+    ? `J-Skip (特別高度人材) may apply: no points needed, permanent residence after 1 year. On the points table: ${total} points, ${verdict === "qualifies_70" ? `clears 70 for ${label.code}` : `${70 - total} short of 70 for ${label.code}`}.`
+    : verdict === "below_salary_floor"
       ? `${total} points, but salary ${yen(salary)} is below the ¥3,000,000 minimum for ${label.code}: does not qualify.`
       : verdict === "qualifies_80"
         ? `${total} points: clears 70 for ${label.code} and 80 for the 1-year permanent-residence fast track.`

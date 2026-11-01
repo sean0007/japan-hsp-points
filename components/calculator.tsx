@@ -166,7 +166,7 @@ export function Calculator({ initial }: { initial?: Shared }) {
         <div className="p-5 sm:p-7" data-testid="result">
           {r ? (
             <>
-              <p className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">{VERDICT_LABEL[r.verdict]} · {r.statusCode}</p>
+              <p className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">{r.jSkip.eligible && r.verdict !== "qualifies_80" ? "J-Skip may apply · " : ""}{VERDICT_LABEL[r.verdict]} · {r.statusCode}</p>
               <p className={`mt-2 font-display text-6xl tracking-tight sm:text-7xl ${VERDICT_STYLE[r.verdict]}`}>
                 {r.total} <span className="text-2xl text-muted">points</span>
               </p>
