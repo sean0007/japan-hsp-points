@@ -40,6 +40,7 @@ Educational points calculator, not immigration or legal advice, not affiliated w
 - Japan Visa Fee Calculator: https://japan-visa-fee.vercel.app
 - Japan Re-entry Deadline Check: https://japan-reentry-check.vercel.app
 - Japan My Number Card Expiry Check: https://japan-mynumber-card-check.vercel.app
+- Japan Pet Quarantine Check: https://japan-pet-quarantine.vercel.app
 - Japan Overseas Dependents Check: https://japan-overseas-dependents.vercel.app
 - Japan Part-time Work Check: https://japan-parttime-check.vercel.app
 - Japan Driving Check: https://japan-driving-check.vercel.app
